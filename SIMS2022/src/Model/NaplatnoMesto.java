@@ -6,6 +6,8 @@ import Model.Enums.TipMesta;
 import Model.Enums.TipNaplate;
 
 public class NaplatnoMesto {
+	
+	private int id;
 	private TipNaplate tipNaplate;
 	private TipMesta tipMesta;
 	private int brojKucice;
@@ -15,12 +17,21 @@ public class NaplatnoMesto {
 	public NaplatnoMesto() {
 	}
 
-	public NaplatnoMesto(TipNaplate tipNaplate, TipMesta tipMesta, int brojKucice, List<Uredjaj> periferniUredjaji, ReferentNaplate referent) {
+	public NaplatnoMesto(int id, TipNaplate tipNaplate, TipMesta tipMesta, int brojKucice, List<Uredjaj> periferniUredjaji, ReferentNaplate referent) {
+		this.id = id;
 		this.tipNaplate = tipNaplate;
 		this.tipMesta = tipMesta;
 		this.brojKucice = brojKucice;
 		this.periferniUredjaji = periferniUredjaji;
 		this.referent = referent;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public TipNaplate getTipNaplate() {
@@ -65,7 +76,7 @@ public class NaplatnoMesto {
 
 	@Override
 	public String toString() {
-		return "NaplatnoMesto [tipNaplate=" + tipNaplate + ", tipMesta=" + tipMesta + ", brojKucice=" + brojKucice
+		return "NaplatnoMesto [id=" + id +  ", tipNaplate=" + tipNaplate + ", tipMesta=" + tipMesta + ", brojKucice=" + brojKucice
 				+ ", periferniUredjaji=" + periferniUredjaji + ", referent=" + referent + "]";
 	}
 

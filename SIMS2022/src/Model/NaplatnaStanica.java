@@ -15,7 +15,7 @@ public class NaplatnaStanica {
 		this.naziv = naziv;
 		this.mesto = mesto;
 	}
-
+	
 	public NaplatnaStanica(String naziv, String mesto, List<NaplatnoMesto> naplatnaMesta, SefStanice sefStanice) {
 		this.naziv = naziv;
 		this.mesto = mesto;
