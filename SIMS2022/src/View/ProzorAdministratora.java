@@ -50,7 +50,7 @@ public class ProzorAdministratora extends JFrame {
 		btnNewButton.setBounds(10, 10, 150, 21);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Napltatna mesto");
+		JButton btnNewButton_1 = new JButton("Naplatno mesto");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
