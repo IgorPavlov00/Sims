@@ -1,4 +1,7 @@
+package SistemZaNaplatu;
 import java.io.IOException;
+
+import View.Prijava;
 
 public class main {
 
@@ -11,7 +14,6 @@ public class main {
 		System.out.println(u.listaKorisnika);
 		Prijava p =new Prijava();
 		p.setVisible(true);
-		
 	}
 
 }

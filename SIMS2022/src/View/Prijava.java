@@ -1,9 +1,7 @@
+package View;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -14,12 +12,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Model.Korisnik;
+import SistemZaNaplatu.Ucitavanje;
+
 public class Prijava extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	
 
 	/**
 	 * Launch the application.
@@ -39,10 +39,9 @@ public class Prijava extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	
-	
 
 	public Prijava() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,56 +50,59 @@ public class Prijava extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("korisnicko ime:");
 		lblNewLabel.setBounds(62, 73, 77, 14);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("lozinka:");
 		lblNewLabel_1.setBounds(62, 125, 46, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		textField = new JTextField();
 		textField.setBounds(182, 70, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setBounds(182, 122, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		JButton btnNewButton = new JButton("uloguj se!");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Ucitavanje u;
-				Boolean flag=false;
-				ProzorKorisnika p=new ProzorKorisnika();
+				Boolean flag = false;
+				ProzorKorisnika p = new ProzorKorisnika();
 				try {
 					u = new Ucitavanje();
 					for (Korisnik k : u.getListaKorisnika()) {
+						String korIme = textField.getText();
+						String lozinka = textField_1.getText();
+						String trenutnoKorIme = k.getKredencijali().getKorisnicko_ime();
+						String trenutnaLozinka = k.getKredencijali().getLozinka();
 						
-						if(textField.getText().equals(k.getKorisnicko_ime()) && textField_1.getText().equals(k.getLozinka())) {
-							flag=true;
+						if (korIme.equals(trenutnoKorIme) && lozinka.equals(trenutnaLozinka)) {
+							flag = true;
 							break;
-						}else {
-							flag=false;
-							 
+						} else {
+							flag = false;
+
 						}
 					}
-					if(flag) {
+					if (flag) {
 						p.setVisible(true);
 						dispose();
-					    
-					}else {
+
+					} else {
 						JOptionPane.showMessageDialog(null, "There's a bug on you!");
 					}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			
-			
+
 			}
 		});
 		btnNewButton.setBounds(179, 195, 89, 23);

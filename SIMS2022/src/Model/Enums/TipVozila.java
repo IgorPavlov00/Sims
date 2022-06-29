@@ -1,0 +1,5 @@
+package Model.Enums;
+
+public enum TipVozila {
+	MOTOCIKL, AUTOMOBIL, AUTOMOBIL_SA_PRIKOLICOM, KOMBI, AUTOBUS, KAMION
+}
