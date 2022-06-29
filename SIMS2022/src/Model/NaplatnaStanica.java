@@ -60,5 +60,13 @@ public class NaplatnaStanica {
 		return "NaplatnaStanica [naziv=" + naziv + ", mesto=" + mesto + ", naplatnaMesta=" + naplatnaMesta
 				+ ", sefStanice=" + sefStanice + "]";
 	}
+	public String getNaplatnaMestaId() {
+		String niz="";
+		for (NaplatnoMesto naplatnoMesto : naplatnaMesta) {
+			niz+=naplatnoMesto.getId()+",";
+		}
+		niz=niz.substring(0, niz.length()-1);
+		return niz;
+	}
 
 }

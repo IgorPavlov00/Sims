@@ -24,6 +24,7 @@ public class Ucitavanje {
 	public Ucitavanje() throws IOException {
 
 		Ucitaj();
+		UcitajNaplatnuStanicu();
 	}
 
 	public Ucitavanje(ArrayList<Korisnik> listaKorisnika, ArrayList<NaplatnaStanica> listaNaplatnihStanica) throws IOException {
@@ -50,7 +51,7 @@ public class Ucitavanje {
 	}
 
 	public void Ucitaj() throws IOException {
-		FileReader fr = new FileReader("/Data/Korisnici.txt");
+		FileReader fr = new FileReader("..\\SIMS2022\\src\\Korisnici.txt");
 		BufferedReader br = new BufferedReader(fr);
 
 		String line = "";
@@ -71,9 +72,30 @@ public class Ucitavanje {
 		br.close();
 	}
 
+	public void UcitajNaplatnaMesta() throws IOException {
+		FileReader fr = new FileReader("..\\SIMS2022\\src\\NaplatnaMesta.txt");
+		BufferedReader br = new BufferedReader(fr);
+
+		String line = "";
+		while ((line = br.readLine()) != null) {
+			String niz[] = line.split("\\|");
+			int id = Integer.parseInt(niz[0]);
+			String ime = niz[1];
+			String prezime = niz[2];
+			String korime = niz[3];
+			String lozinka = niz[4];
+
+			Kredencijali kred = new Kredencijali(korime, lozinka);
+			Korisnik k = new Korisnik(id, ime, prezime, kred);
+
+			listaKorisnika.add(k);
+
+		}
+		br.close();
+	}
 	
 	public void UcitajNaplatnuStanicu() throws IOException {
-		FileReader fr = new FileReader("/Data/NaplatnaStanica.txt");
+		FileReader fr = new FileReader("..\\SIMS2022\\src\\NaplatnaStanica.txt");
 		BufferedReader br = new BufferedReader(fr);
 
 		String line = "";
