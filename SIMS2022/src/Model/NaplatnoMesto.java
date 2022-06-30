@@ -83,7 +83,7 @@ public class NaplatnoMesto {
 	public String getNaplatnoId() {
 		String niz="";
 		for (Uredjaj uredjaj : periferniUredjaji) {
-			niz+=uredjaj+",";
+			niz+=uredjaj.getClass().getSimpleName()+",";
 		}
 		niz=niz.substring(0, niz.length()-1);
 		return niz;

@@ -141,7 +141,9 @@ public class ProzorNaplatnaMesta extends JFrame {
 		sefLbl.setBounds(10, 136, 85, 13);
 		contentPane.add(sefLbl);
 		
-		
+		combo3 = new JComboBox();
+	      combo3.setBounds(101, 131, 96, 22);
+	      contentPane.add(combo3);
 
 //Then the Table is constructed using these data and columnNames:
        String []niz= {"tip naplate","tip mesta","broj kucice","periferni uredjaji","referetn"};
@@ -150,6 +152,13 @@ public class ProzorNaplatnaMesta extends JFrame {
 	}
 		
 		JButton nazadBtn = new JButton("Nazad");
+		nazadBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProzorAdministratora pr=new ProzorAdministratora();
+				pr.setVisible(true);
+				dispose();
+			}
+		});
 		nazadBtn.setBounds(10, 232, 85, 21);
 		contentPane.add(nazadBtn);
 	      
@@ -163,8 +172,19 @@ public class ProzorNaplatnaMesta extends JFrame {
 			Object[] o= {n.getTipNaplate(),n.getTipMesta(),n.getBrojKucice(),n.getNaplatnoId(),n.getReferent().getIme()};
 			model.addRow(o);
 			table= new JTable(model);
+			
 		
 		}
+		combo1.addItem("FIZICKA");
+		combo1.addItem("ELEKTRONSKA");
+		
+		combo2.addItem("ULAZ");
+		combo2.addItem("IZLAZ");
+		
+		
+		combo3.addItem("Rampa,Displej,Semafor,Citac");
+		
+		
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -176,6 +196,7 @@ public class ProzorNaplatnaMesta extends JFrame {
 		
 						combo1.setSelectedItem(n.getTipMesta());
 						combo2.setSelectedItem(n.getTipNaplate());
+						
 						text1.setText(n.getBrojKucice()+"");
 						txt2.setText(n.getReferent().getIme());
 						break;
@@ -183,11 +204,11 @@ public class ProzorNaplatnaMesta extends JFrame {
 				}
 			}
 		});
+		
+		table.setDefaultEditor(Object.class, null);
 	      scrollPane.setViewportView(table);
 	      
-	       combo3 = new JComboBox();
-	      combo3.setBounds(101, 131, 96, 22);
-	      contentPane.add(combo3);
+	       
 	      
 	      JLabel lblNewLabel = new JLabel("referent");
 	      lblNewLabel.setBounds(10, 175, 46, 14);

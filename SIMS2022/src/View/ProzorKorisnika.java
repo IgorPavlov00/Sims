@@ -153,6 +153,13 @@ public class ProzorKorisnika extends JFrame {
 	}
 		
 		JButton nazadBtn = new JButton("Nazad");
+		nazadBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProzorAdministratora pr=new ProzorAdministratora();
+				pr.setVisible(true);
+				dispose();
+			}
+		});
 		nazadBtn.setBounds(10, 232, 85, 21);
 		contentPane.add(nazadBtn);
 	      
@@ -186,6 +193,7 @@ public class ProzorKorisnika extends JFrame {
 				}
 			}
 		});
+		table.setDefaultEditor(Object.class, null);
 	      scrollPane.setViewportView(table);
 	      
 	      korImeTxtField = new JTextField();
