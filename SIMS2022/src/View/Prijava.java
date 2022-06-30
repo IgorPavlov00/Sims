@@ -75,26 +75,52 @@ public class Prijava extends JFrame {
 				Ucitavanje u;
 				Boolean flag = false;
 			    ProzorAdministratora padmin=new ProzorAdministratora();
+				ProzorMenadzera pm;
+				ProzorSefStanice sf;
+
 				try {
 					u = new Ucitavanje();
+					pm = new ProzorMenadzera();
+					Korisnik kor = new Korisnik();
 					for (Korisnik k : u.getListaKorisnika()) {
 						String korIme = textField.getText();
 						String lozinka = textField_1.getText();
 						String trenutnoKorIme = k.getKredencijali().getKorisnicko_ime();
 						String trenutnaLozinka = k.getKredencijali().getLozinka();
 						
-						if (korIme.equals(trenutnoKorIme) && lozinka.equals(trenutnaLozinka) && k.getClass().getSimpleName().equals("Administrator")) {
+						if (korIme.equals(trenutnoKorIme) && lozinka.equals(trenutnaLozinka)) {
 							flag = true;
+							kor = k;
 							break;
+						
 						} else {
 							flag = false;
 
 						}
 					}
 					if (flag) {
-						padmin.setVisible(true);
-						dispose();
-
+						if(kor.getClass().getSimpleName().equals("Administrator")) {
+							padmin.setVisible(true);
+							dispose();
+						}
+						if(kor.getClass().getSimpleName().equals("MenadzerSistema")) {
+							pm.setVisible(true);
+							dispose();
+						}
+						if(kor.getClass().getSimpleName().equals("SefStanice")) {
+							sf = new ProzorSefStanice(kor.getId());
+							sf.setVisible(true);
+							dispose();
+						}
+						if(kor.getClass().getSimpleName().equals("ReferentNaplate")) {
+							padmin.setVisible(true);
+							dispose();
+						}
+						if(kor.getClass().getSimpleName().equals("ProdavacTagova")) {
+							padmin.setVisible(true);
+							dispose();
+						}
+						
 					} else {
 						JOptionPane.showMessageDialog(null, "There's a bug on you!");
 					}
