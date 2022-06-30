@@ -59,7 +59,6 @@ public class ProzorSefStanice extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		ArrayList<Cenovnik>li=u.getListaCenovnika();
 		
 		
 

@@ -22,13 +22,13 @@ import javax.swing.table.DefaultTableModel;
 import Model.Cenovnik;
 import Model.NaplatnaStanica;
 import Model.NaplatnoMesto;
-import Model.ReferentNaplate;
 import Model.SefStanice;
+import Model.Tag;
 import SistemZaNaplatu.Ucitavanje;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ProzorReferent extends JFrame {
+public class ProzorProdavacTagova extends JFrame {
 
 	private JPanel contentPane;
 	public JTable table;
@@ -39,7 +39,7 @@ public class ProzorReferent extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ProzorReferent frame = new ProzorReferent();
+					ProzorProdavacTagova frame = new ProzorProdavacTagova();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class ProzorReferent extends JFrame {
 	}
 
 
-	public ProzorReferent() throws IOException {
+	public ProzorProdavacTagova() throws IOException {
 		u=new Ucitavanje();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 300);
@@ -57,10 +57,11 @@ public class ProzorReferent extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		ArrayList<Tag>li=u.getListaTagova();
 		
 		
 
-      String []niz= {"Pocetak vazenja","Kraj vazenja","Da li je aktivan"};
+      String []niz= {"Id","Ime","Prezime", "Tip vozila", "Kolicina novca"};
 	  for (String string : niz) {
 		model.addColumn(string);
 	}
@@ -82,8 +83,8 @@ public class ProzorReferent extends JFrame {
 		scrollPane.setBounds(45, 10, 498, 179);
 		contentPane.add(scrollPane);
 		
-		for (Cenovnik c : u.listaCenovnika) {
-			Object[] o= {c.getPocetakVazenja(), c.getKrajVazenja(), c.isAktivan()};
+		for (Tag t : u.listaTagova) {
+			Object[] o= {t.getId(), t.getIme(), t.getPrezime(), t.getTipVozila(), t.getKolicinaNovca()};
 			model.addRow(o);
 			table= new JTable(model);
 		}
