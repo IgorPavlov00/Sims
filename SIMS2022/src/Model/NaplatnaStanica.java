@@ -65,7 +65,6 @@ public class NaplatnaStanica {
 		for (NaplatnoMesto naplatnoMesto : naplatnaMesta) {
 			niz+=naplatnoMesto.getId()+",";
 		}
-		niz=niz.substring(0, niz.length()-1);
 		return niz;
 	}
 
