@@ -74,12 +74,7 @@ public class Prijava extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Ucitavanje u;
 				Boolean flag = false;
-				ProzorKorisnika p;
-				try {
-					p = new ProzorKorisnika();
-				} catch (IOException e2) {
-					e2.printStackTrace();
-				}
+			    ProzorAdministratora padmin=new ProzorAdministratora();
 				try {
 					u = new Ucitavanje();
 					for (Korisnik k : u.getListaKorisnika()) {
@@ -88,7 +83,7 @@ public class Prijava extends JFrame {
 						String trenutnoKorIme = k.getKredencijali().getKorisnicko_ime();
 						String trenutnaLozinka = k.getKredencijali().getLozinka();
 						
-						if (korIme.equals(trenutnoKorIme) && lozinka.equals(trenutnaLozinka)) {
+						if (korIme.equals(trenutnoKorIme) && lozinka.equals(trenutnaLozinka) && k.getClass().getSimpleName().equals("Administrator")) {
 							flag = true;
 							break;
 						} else {
@@ -97,7 +92,7 @@ public class Prijava extends JFrame {
 						}
 					}
 					if (flag) {
-						p.setVisible(true);
+						padmin.setVisible(true);
 						dispose();
 
 					} else {

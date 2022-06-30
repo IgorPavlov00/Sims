@@ -113,7 +113,7 @@ public class Ucitavanje {
 	// TODO: Ucitavanje uredjaja
 	// Uredjaji imaju vrstu: rampa, citac, displej, semafor
 	public void ucitajNaplatnaMesta() throws IOException {
-		FileReader fr = new FileReader("..\\SIMS2022\\src\\NaplatnaMesta.txt");
+		FileReader fr = new FileReader("..\\SIMS2022\\src\\NaplatnoMesto.txt");
 		BufferedReader br = new BufferedReader(fr);
 
 		String line = "";

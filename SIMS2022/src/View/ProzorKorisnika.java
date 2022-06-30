@@ -76,7 +76,7 @@ public class ProzorKorisnika extends JFrame {
 				String korIme=korImeTxtField.getText();
 				String sifra=sifraTxtField.getText();
 				String tipKorisnika= tipKorisnikaComboBox.getSelectedItem().toString();
-			   
+			    
 				//Staviti klase za tip korisnika
 			    model.addRow(new Object []{ime,prezime,korIme,sifra, tipKorisnika});
 			}
