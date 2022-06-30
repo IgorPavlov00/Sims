@@ -530,16 +530,29 @@ public class Ucitavanje {
 		writer.close();
 
 		str = "";
+		ArrayList<ElektronskaNaplata> elNaplate = new ArrayList<ElektronskaNaplata>();
+		ArrayList<FizickaNaplata> fizNaplate = new ArrayList<FizickaNaplata>();
+		for (Naplata n : this.listaNaplata) {
+			if (n.getClass().getSimpleName().equals("ElektronskaNaplata")) {
+				elNaplate.add((ElektronskaNaplata)n);
+			}
+			if (n.getClass().getSimpleName().equals("FizickaNaplata")) {
+				fizNaplate.add((FizickaNaplata)n);
+			}
+		}
 		for (Naplata n : this.listaNaplata) {
 			str += n.getVremeUlaska().format(vremeDTF) + "|" + n.getVremeIzlaska().format(vremeDTF) + "|"
 					+ n.getMestoUlaska().getNaziv() + "|" + n.getMestoIzlaska().getNaziv() + "|" + n.getTabliceVozila()
 					+ "|" + n.getProsecnaBrzina();
 			if (n.getClass().getSimpleName().equals("ElektronskaNaplata")) {
 				str += "|" + TipNaplate.ELEKTRONSKI.toString();
-
+				ElektronskaNaplata el = (ElektronskaNaplata)n;
+				str += "|" + el.getTag().getId();
 			}
 			if (n.getClass().getSimpleName().equals("FizickaNaplata")) {
 				str += "|" + TipNaplate.FIZICKI.toString();
+				FizickaNaplata fiz = (FizickaNaplata)n;
+				str += "|" + fiz.getTipVozila().toString();
 			}
 			str += "\n";
 		}
