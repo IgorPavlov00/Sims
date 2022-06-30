@@ -1,0 +1,5 @@
+Subotica Sever|Subotica|1,2,3,4,5,6,7,8,9,10|1
+Novi Sad Istok|Novi Sad|1,2,3,4,5,6,7,8,9,10|2
+Novi Sad Zapad|Novi Sad|1,2,3,4,5,6,7,8,9,10|3
+Beograd Jug|Beograd|1,2,3,4,5,6,7,8,9,10|4
+Nis Sever|Nis|1,2,3,4,5,6,7,8,9,10|5

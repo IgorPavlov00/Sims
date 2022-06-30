@@ -1,0 +1,3 @@
+0|kata|katic|AUTOMOBIL|2000
+1|rajko|rajkovic|KAMION|8000
+2|dana|danic|AUTOMOBIL_SA_PRIKOLICOM|5000

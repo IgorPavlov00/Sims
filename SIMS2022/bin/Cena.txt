@@ -1,0 +1,5 @@
+0|500|RSD|AUTOMOBIL|Subotica Sever,Novi Sad Istok
+1|600|RSD|AUTOMOBIL|Subotica Sever,Beograd Jug
+2|300|RSD|AUTOMOBIL|Novi Sad Zapad,Beograd Jug
+3|3|EUR|MOTOCIKL|Novi Sad Zapad,Beograd Jug
+4|7|EUR|AUTOMOBIL_SA_PRIKOLICOM|Beograd Jug,Nis Sever
