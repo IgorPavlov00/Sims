@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Model.Cenovnik;
+import Model.Naplata;
 import Model.NaplatnaStanica;
 import Model.NaplatnoMesto;
 import Model.ReferentNaplate;
@@ -60,7 +61,7 @@ public class ProzorReferent extends JFrame {
 		
 		
 
-      String []niz= {"Pocetak vazenja","Kraj vazenja","Da li je aktivan"};
+	  String []niz= {"Tablice", "Mesto ulaska", "Vreme ulaska", "Mesto izlaska", "Vreme izlaska", "Cena"};
 	  for (String string : niz) {
 		model.addColumn(string);
 	}
@@ -82,8 +83,8 @@ public class ProzorReferent extends JFrame {
 		scrollPane.setBounds(45, 10, 498, 179);
 		contentPane.add(scrollPane);
 		
-		for (Cenovnik c : u.listaCenovnika) {
-			Object[] o= {c.getPocetakVazenja(), c.getKrajVazenja(), c.isAktivan()};
+		for (Naplata np : u.listaNaplata) {
+			Object[] o= {np.getTabliceVozila(), np.getMestoUlaska(), np.getVremeUlaska(),  np.getMestoIzlaska(), np.getVremeIzlaska(), np.getCena().getIznos() + " " + np.getCena().getValuta()};
 			model.addRow(o);
 			table= new JTable(model);
 		}

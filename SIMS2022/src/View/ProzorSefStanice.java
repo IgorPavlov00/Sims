@@ -62,7 +62,7 @@ public class ProzorSefStanice extends JFrame {
 		
 		
 
-      String []niz= {"Tablice", "Mesto ulaska", "Vreme ulaska", "Mesto izlaska", "Vreme izlaska", "Cena"};
+      String []niz= {"Id", "Broj kucice", "Tip mesta", "Tip naplate"};
 	  for (String string : niz) {
 		model.addColumn(string);
 	}
@@ -84,9 +84,12 @@ public class ProzorSefStanice extends JFrame {
 		scrollPane.setBounds(39, 10, 517, 179);
 		contentPane.add(scrollPane);
 		
-		for (Naplata np : u.listaNaplata) {
-			Object[] o= {np.getTabliceVozila(), np.getMestoUlaska(), np.getVremeUlaska(),  np.getMestoIzlaska(), np.getVremeIzlaska(), np.getCena().getIznos() + " " + np.getCena().getValuta()};
-			model.addRow(o);
+		for (NaplatnaStanica ns : u.listaNaplatnihStanica) {
+			if(ns.getSefStanice().getId() == id)
+				for(NaplatnoMesto nm : ns.getNaplatnaMesta()) {
+					Object[] o= {nm.getId(), nm.getBrojKucice(), nm.getTipMesta(), nm.getTipNaplate()};
+					model.addRow(o);
+				}
 			table= new JTable(model);
 		}
 	    scrollPane.setViewportView(table);

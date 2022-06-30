@@ -94,5 +94,16 @@ public class ProzorAdministratora extends JFrame {
 		});
 		btnNewButton_2.setBounds(363, 10, 122, 21);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Odjavi se");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Prijava pr=new Prijava();
+				pr.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_3.setBounds(211, 187, 85, 21);
+		contentPane.add(btnNewButton_3);
 	}
 }

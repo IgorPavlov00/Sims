@@ -77,10 +77,14 @@ public class Prijava extends JFrame {
 			    ProzorAdministratora padmin=new ProzorAdministratora();
 				ProzorMenadzera pm;
 				ProzorSefStanice sf;
+				ProzorReferent pr;
+				ProzorProdavacTagova pt;
 
 				try {
+					pr = new ProzorReferent();
 					u = new Ucitavanje();
 					pm = new ProzorMenadzera();
+					pt = new ProzorProdavacTagova();
 					Korisnik kor = new Korisnik();
 					for (Korisnik k : u.getListaKorisnika()) {
 						String korIme = textField.getText();
@@ -113,11 +117,11 @@ public class Prijava extends JFrame {
 							dispose();
 						}
 						if(kor.getClass().getSimpleName().equals("ReferentNaplate")) {
-							padmin.setVisible(true);
+							pr.setVisible(true);
 							dispose();
 						}
 						if(kor.getClass().getSimpleName().equals("ProdavacTagova")) {
-							padmin.setVisible(true);
+							pt.setVisible(true);
 							dispose();
 						}
 						
