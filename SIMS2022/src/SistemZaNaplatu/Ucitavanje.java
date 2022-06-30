@@ -53,7 +53,56 @@ public class Ucitavanje {
 		super();
 		this.listaKorisnika = listaKorisnika;
 		this.listaNaplatnihStanica = listaNaplatnihStanica;
+		this.listaNaplatnihMesta=listaNaplatnihMesta;
 		ucitajKorisnike();
+	}
+
+	public ArrayList<NaplatnoMesto> getListaNaplatnihMesta() {
+		return listaNaplatnihMesta;
+	}
+
+	public void setListaNaplatnihMesta(ArrayList<NaplatnoMesto> listaNaplatnihMesta) {
+		this.listaNaplatnihMesta = listaNaplatnihMesta;
+	}
+
+	public ArrayList<Cenovnik> getListaCenovnika() {
+		return listaCenovnika;
+	}
+
+	public void setListaCenovnika(ArrayList<Cenovnik> listaCenovnika) {
+		this.listaCenovnika = listaCenovnika;
+	}
+
+	public ArrayList<Cena> getListaCena() {
+		return listaCena;
+	}
+
+	public void setListaCena(ArrayList<Cena> listaCena) {
+		this.listaCena = listaCena;
+	}
+
+	public ArrayList<Deonica> getListaDeonica() {
+		return listaDeonica;
+	}
+
+	public void setListaDeonica(ArrayList<Deonica> listaDeonica) {
+		this.listaDeonica = listaDeonica;
+	}
+
+	public ArrayList<Tag> getListaTagova() {
+		return listaTagova;
+	}
+
+	public void setListaTagova(ArrayList<Tag> listaTagova) {
+		this.listaTagova = listaTagova;
+	}
+
+	public ArrayList<Naplata> getListaNaplata() {
+		return listaNaplata;
+	}
+
+	public void setListaNaplata(ArrayList<Naplata> listaNaplata) {
+		this.listaNaplata = listaNaplata;
 	}
 
 	public ArrayList<Korisnik> getListaKorisnika() {

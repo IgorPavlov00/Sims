@@ -79,5 +79,13 @@ public class NaplatnoMesto {
 		return "NaplatnoMesto [id=" + id +  ", tipNaplate=" + tipNaplate + ", tipMesta=" + tipMesta + ", brojKucice=" + brojKucice
 				+ ", periferniUredjaji=" + periferniUredjaji + ", referent=" + referent + "]";
 	}
+	public String getNaplatnoId() {
+		String niz="";
+		for (Uredjaj uredjaj : periferniUredjaji) {
+			niz+=uredjaj+",";
+		}
+		niz=niz.substring(0, niz.length()-1);
+		return niz;
+	}
 
 }

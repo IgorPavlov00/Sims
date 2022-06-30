@@ -29,13 +29,14 @@ import java.awt.event.MouseEvent;
 public class ProzorNaplatnaMesta extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField nazivTxtField;
-	private JTextField mestoTxtField;
-	private JComboBox napMestoComboBox;
-	private JComboBox sefComboBox ;
+	private JTextField text1;
+	private JComboBox combo1;
+	private JComboBox combo2 ;
+	private JComboBox combo3;
 	public JTable table;
    public DefaultTableModel model=new DefaultTableModel();
 	Ucitavanje u;
+	private JTextField txt2;
 	/**
 	 * Launch the application.
 	 */
@@ -66,16 +67,16 @@ public class ProzorNaplatnaMesta extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton dodajBtn = new JButton("Dodaj");
-		ArrayList<NaplatnaStanica>li=u.getListaNaplatnihStanica();
+		ArrayList<NaplatnoMesto>li=u.getListaNaplatnihMesta();
 		dodajBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String naziv=nazivTxtField.getText();
-				String mesto=mestoTxtField.getText();
-				String naplatnaMesta= napMestoComboBox.getSelectedItem().toString();
-				String sef= sefComboBox.getSelectedItem().toString();
-			   
+				String tipNaplate=combo1.getSelectedItem().toString();
+				String tipMesta=combo2.getSelectedItem().toString();
+				String brojKucice=text1.getText();
+				String periferni =combo3.getSelectedItem().toString();
+			   String referent=txt2.getText();
 				
-			    model.addRow(new Object []{naziv,mesto,naplatnaMesta,sef});
+			    model.addRow(new Object []{tipNaplate,tipMesta,brojKucice,periferni,referent});
 			}
 		});
 		dodajBtn.setBounds(240, 232, 85, 21);
@@ -86,11 +87,13 @@ public class ProzorNaplatnaMesta extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int i=table.getSelectedRow();
 			   String red=table.getValueAt(i, 0).toString();
-			 
-		         model.setValueAt(nazivTxtField.getText(), i, 0);
-		         model.setValueAt(mestoTxtField.getText(), i, 1);
-		         model.setValueAt(napMestoComboBox.getSelectedItem().toString(), i, 2);
-		         model.setValueAt(sefComboBox.getSelectedItem().toString(), i, 3);
+			     model.setValueAt(combo1.getSelectedItem().toString(), i, 0);
+		         model.setValueAt(combo2.getSelectedItem().toString(), i, 1);
+		         
+		         model.setValueAt(text1.getText(), i, 2);
+		         model.setValueAt(combo3.getSelectedItem().toString(), i, 3);
+		         model.setValueAt(txt2.getText(), i, 4);
+
 					
 				}
 			
@@ -109,38 +112,33 @@ public class ProzorNaplatnaMesta extends JFrame {
 		obrisiBtn.setBounds(479, 232, 85, 21);
 		contentPane.add(obrisiBtn);
 		
-		nazivTxtField = new JTextField();
-		nazivTxtField.setBounds(91, 10, 96, 19);
-		contentPane.add(nazivTxtField);
-		nazivTxtField.setColumns(10);
-		
-		JLabel nazivLbl = new JLabel("Naziv");
-		nazivLbl.setBounds(10, 13, 45, 13);
+		JLabel nazivLbl = new JLabel("TipNaplate");
+		nazivLbl.setBounds(10, 13, 71, 13);
 		contentPane.add(nazivLbl);
 		
-		mestoTxtField = new JTextField();
-		mestoTxtField.setBounds(91, 52, 96, 19);
-		contentPane.add(mestoTxtField);
-		mestoTxtField.setColumns(10);
+		text1 = new JTextField();
+		text1.setBounds(101, 92, 96, 19);
+		contentPane.add(text1);
+		text1.setColumns(10);
 		
-		JLabel mestoLbl = new JLabel("Mesto");
+		JLabel mestoLbl = new JLabel("TipMesta");
 		mestoLbl.setBounds(10, 55, 45, 13);
 		contentPane.add(mestoLbl);
 		
-		JLabel napMestoLbl = new JLabel("Napltano mesto");
+		JLabel napMestoLbl = new JLabel("broj kucice");
 		napMestoLbl.setBounds(10, 96, 85, 13);
 		contentPane.add(napMestoLbl);
 		
-		napMestoComboBox = new JComboBox();
-		napMestoComboBox.setBounds(91, 92, 96, 21);
-		contentPane.add(napMestoComboBox);
+		combo1 = new JComboBox();
+		combo1.setBounds(101, 9, 96, 21);
+		contentPane.add(combo1);
 		
-		 sefComboBox = new JComboBox();
-		sefComboBox.setBounds(91, 132, 96, 21);
-		contentPane.add(sefComboBox);
+		 combo2 = new JComboBox();
+		combo2.setBounds(101, 51, 96, 21);
+		contentPane.add(combo2);
 		
-		JLabel sefLbl = new JLabel("Sef");
-		sefLbl.setBounds(10, 136, 45, 13);
+		JLabel sefLbl = new JLabel("periferni uredjaji");
+		sefLbl.setBounds(10, 136, 85, 13);
 		contentPane.add(sefLbl);
 		
 		
@@ -162,11 +160,10 @@ public class ProzorNaplatnaMesta extends JFrame {
 		contentPane.add(scrollPane);
 		
 		for (NaplatnoMesto n : u.listaNaplatnihMesta) {
-			Object[] o= {n.getTipNaplate(),n.getTipMesta(),n.getBrojKucice(),n.getPeriferniUredjaji(),n.getReferent().getIme()};
+			Object[] o= {n.getTipNaplate(),n.getTipMesta(),n.getBrojKucice(),n.getNaplatnoId(),n.getReferent().getIme()};
 			model.addRow(o);
 			table= new JTable(model);
-			napMestoComboBox.addItem(n.getTipMesta());
-			sefComboBox.addItem(n.getTipNaplate());
+		
 		}
 		table.addMouseListener(new MouseAdapter() {
 			@Override
@@ -176,15 +173,30 @@ public class ProzorNaplatnaMesta extends JFrame {
 				   for (NaplatnoMesto n : li) {
 					if(n.getTipNaplate().equals(red)) {
 						
-					
-						napMestoComboBox.setSelectedItem(n.getTipMesta());
-						sefComboBox.setSelectedItem(n.getTipNaplate());
+		
+						combo1.setSelectedItem(n.getTipMesta());
+						combo2.setSelectedItem(n.getTipNaplate());
+						text1.setText(n.getBrojKucice()+"");
+						txt2.setText(n.getReferent().getIme());
 						break;
 					}
 				}
 			}
 		});
 	      scrollPane.setViewportView(table);
+	      
+	       combo3 = new JComboBox();
+	      combo3.setBounds(101, 131, 96, 22);
+	      contentPane.add(combo3);
+	      
+	      JLabel lblNewLabel = new JLabel("referent");
+	      lblNewLabel.setBounds(10, 175, 46, 14);
+	      contentPane.add(lblNewLabel);
+	      
+	      txt2 = new JTextField();
+	      txt2.setBounds(101, 172, 96, 20);
+	      contentPane.add(txt2);
+	      txt2.setColumns(10);
 	      
 	}
 }
