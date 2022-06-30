@@ -12,6 +12,11 @@ public class ReferentNaplate extends Korisnik{
 		// TODO Auto-generated constructor stub
 	}
 
+	public ReferentNaplate(Korisnik k) {
+		super(k.getId(), k.getIme(), k.getPrezime(), k.getKredencijali());
+		// TODO Auto-generated constructor stub
+	}
+	
 	@Override
 	public String toString() {
 		return "ReferentNaplate [" + super.toString() + "]";

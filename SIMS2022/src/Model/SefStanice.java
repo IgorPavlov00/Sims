@@ -11,6 +11,11 @@ public class SefStanice extends Korisnik {
 		super(id, ime, prezime, kredencijali);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public SefStanice(Korisnik k) {
+		super(k.getId(), k.getIme(), k.getPrezime(), k.getKredencijali());
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {

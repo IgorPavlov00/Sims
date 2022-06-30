@@ -92,6 +92,7 @@ public class Prijava extends JFrame {
 						}
 					}
 					if (flag) {
+						u.upisiUFajl();
 						p.setVisible(true);
 						dispose();
 

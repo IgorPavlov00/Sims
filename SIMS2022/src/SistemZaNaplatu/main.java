@@ -11,7 +11,6 @@ public class main {
 		
 		
 		Ucitavanje u = new Ucitavanje();
-		System.out.println(u.listaKorisnika);
 		Prijava p =new Prijava();
 		p.setVisible(true);
 	}

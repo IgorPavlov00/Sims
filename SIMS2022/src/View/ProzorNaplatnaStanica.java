@@ -26,7 +26,7 @@ import SistemZaNaplatu.Ucitavanje;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class NapltatnaStanica extends JFrame {
+public class ProzorNaplatnaStanica extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nazivTxtField;
@@ -43,7 +43,7 @@ public class NapltatnaStanica extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NapltatnaStanica frame = new NapltatnaStanica();
+					ProzorNaplatnaStanica frame = new ProzorNaplatnaStanica();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class NapltatnaStanica extends JFrame {
 	 * Create the frame.
 	 * @throws IOException 
 	 */
-	public NapltatnaStanica() throws IOException {
+	public ProzorNaplatnaStanica() throws IOException {
 		u=new Ucitavanje();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 300);

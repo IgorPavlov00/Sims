@@ -1,0 +1,5 @@
+500|0|1|Subotica,Novi Sad|true
+600|0|1|Subotica,Beograd|true
+300|0|1|Novi Sad,Beograd|true
+3|1|0|Novi Sad,Beograd|true
+7|1|2|Beograd,Nis|false

@@ -1,8 +1,12 @@
-/Data/
+/Korisnici.txt
+/NaplatnaStanica.txt
+/NaplatnoMesto.txt
 /Model/
 /SistemZaNaplatu/
 /View/
-/Korisnici.txt
-/NaplatnoMesto.txt
-/NapltatnaStanica.txt
-/NaplatnaStanica.txt
+/Deonice
+/Deonice.txt
+/Cena.txt
+/Cenovnik.txt
+/Tag.txt
+/Naplata.txt
