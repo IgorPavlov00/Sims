@@ -44,6 +44,7 @@ public class Ucitavanje {
 	public Ucitavanje() throws IOException {
 
 		ucitajKorisnike();
+		ucitajNaplatnaMesta();
 		ucitajNaplatneStanice();
 	}
 

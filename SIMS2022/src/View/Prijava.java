@@ -74,7 +74,12 @@ public class Prijava extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Ucitavanje u;
 				Boolean flag = false;
-				ProzorKorisnika p = new ProzorKorisnika();
+				ProzorKorisnika p;
+				try {
+					p = new ProzorKorisnika();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
 				try {
 					u = new Ucitavanje();
 					for (Korisnik k : u.getListaKorisnika()) {
@@ -92,7 +97,6 @@ public class Prijava extends JFrame {
 						}
 					}
 					if (flag) {
-						u.upisiUFajl();
 						p.setVisible(true);
 						dispose();
 
@@ -100,7 +104,6 @@ public class Prijava extends JFrame {
 						JOptionPane.showMessageDialog(null, "There's a bug on you!");
 					}
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 

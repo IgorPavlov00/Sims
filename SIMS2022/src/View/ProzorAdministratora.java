@@ -57,5 +57,9 @@ public class ProzorAdministratora extends JFrame {
 		});
 		btnNewButton_1.setBounds(189, 10, 150, 21);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Korisnici");
+		btnNewButton_2.setBounds(363, 10, 122, 21);
+		contentPane.add(btnNewButton_2);
 	}
 }
