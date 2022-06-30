@@ -1,1 +1,1 @@
-15:30|16:30|Novi Sad Zapad|Beograd Jug|NS 985 CK|120.0|FIZICKI
+15:30|16:30|Novi Sad Zapad|Beograd Jug|NS 985 CK|120.0|FIZICKI|AUTOMOBIL

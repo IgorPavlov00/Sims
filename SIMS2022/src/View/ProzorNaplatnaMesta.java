@@ -66,7 +66,7 @@ public class ProzorNaplatnaMesta extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton dodajBtn = new JButton("Dodaj");
-		ArrayList<NaplatnaStanica>li=u.getListaNaplatnihStanica();
+		ArrayList<NaplatnoMesto>li=u.getListaNaplatnihMesta();
 		dodajBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String naziv=nazivTxtField.getText();
