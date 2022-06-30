@@ -1,3 +1,2 @@
-
-*.prefs
-SIMS2022/.settings/org.eclipse.jdt.core.prefs
+/SIMS2022/bin
+SIMS2022/.settings

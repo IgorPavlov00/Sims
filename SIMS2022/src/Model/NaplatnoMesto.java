@@ -6,7 +6,7 @@ import Model.Enums.TipMesta;
 import Model.Enums.TipNaplate;
 
 public class NaplatnoMesto {
-	
+
 	private int id;
 	private TipNaplate tipNaplate;
 	private TipMesta tipMesta;
@@ -17,7 +17,8 @@ public class NaplatnoMesto {
 	public NaplatnoMesto() {
 	}
 
-	public NaplatnoMesto(int id, TipNaplate tipNaplate, TipMesta tipMesta, int brojKucice, List<Uredjaj> periferniUredjaji, ReferentNaplate referent) {
+	public NaplatnoMesto(int id, TipNaplate tipNaplate, TipMesta tipMesta, int brojKucice,
+			List<Uredjaj> periferniUredjaji, ReferentNaplate referent) {
 		this.id = id;
 		this.tipNaplate = tipNaplate;
 		this.tipMesta = tipMesta;
@@ -25,7 +26,7 @@ public class NaplatnoMesto {
 		this.periferniUredjaji = periferniUredjaji;
 		this.referent = referent;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -76,8 +77,16 @@ public class NaplatnoMesto {
 
 	@Override
 	public String toString() {
-		return "NaplatnoMesto [id=" + id +  ", tipNaplate=" + tipNaplate + ", tipMesta=" + tipMesta + ", brojKucice=" + brojKucice
-				+ ", periferniUredjaji=" + periferniUredjaji + ", referent=" + referent + "]";
+		return "NaplatnoMesto [id=" + id + ", tipNaplate=" + tipNaplate + ", tipMesta=" + tipMesta + ", brojKucice="
+				+ brojKucice + ", periferniUredjaji=" + periferniUredjaji + ", referent=" + referent + "]";
 	}
 
+	public String getUredjaji() {
+		String str = "";
+		for (Uredjaj uredjaj : periferniUredjaji) {
+			str += uredjaj.getId() + ",";
+		}
+		str = str.substring(0, str.length() - 1);
+		return str;
+	}
 }

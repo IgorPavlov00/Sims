@@ -1,6 +1,7 @@
 package Model;
 
 public class Uredjaj {
+	private int id;
 	private boolean stanje;
 
 	public Uredjaj() {
@@ -8,6 +9,19 @@ public class Uredjaj {
 
 	public Uredjaj(boolean stanje) {
 		this.stanje = stanje;
+	}
+
+	public Uredjaj(int id, boolean stanje) {
+		this.id = id;
+		this.stanje = stanje;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public boolean isEnabled() {
@@ -20,7 +34,7 @@ public class Uredjaj {
 
 	@Override
 	public String toString() {
-		return "Uredjaj [stanje=" + stanje + "]";
+		return "Uredjaj [id=" + id + ", stanje=" + stanje + ", getClass()=" + getClass().getSimpleName() + "]";
 	}
 
 }

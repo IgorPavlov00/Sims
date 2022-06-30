@@ -4,6 +4,7 @@ import Model.Enums.TipVozila;
 import Model.Enums.Valuta;
 
 public class Cena {
+	private int id;
 	private int iznos;
 	private Valuta valuta;
 	private TipVozila tipVozila;
@@ -12,10 +13,27 @@ public class Cena {
 	public Cena() {
 	}
 
-	public Cena(int iznos, Valuta valuta, TipVozila tipVozila, Deonica deonica) {
+	public Cena(int id, int iznos, Valuta valuta, TipVozila tipVozila, Deonica deonica) {
+		this.id = id;
 		this.iznos = iznos;
 		this.valuta = valuta;
 		this.tipVozila = tipVozila;
+		this.deonica = deonica;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Deonica getDeonica() {
+		return deonica;
+	}
+
+	public void setDeonica(Deonica deonica) {
 		this.deonica = deonica;
 	}
 
@@ -45,8 +63,12 @@ public class Cena {
 
 	@Override
 	public String toString() {
-		return "Cena [iznos=" + iznos + ", valuta=" + valuta + ", tipVozila=" + tipVozila + ", deonica=" + deonica
-				+ "]";
+		return "Cena [id=" + id + ", iznos=" + iznos + ", valuta=" + valuta + ", tipVozila=" + tipVozila + ", deonica="
+				+ deonica + "]";
+	}
+
+	public String getDeonicaString() {
+		return this.deonica.getOdStanice().getNaziv() + "," + this.deonica.getDoStanice().getNaziv();
 	}
 
 }
