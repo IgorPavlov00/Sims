@@ -1,0 +1,4 @@
+Subotica Sever|Novi Sad Istok
+Subotica Sever|Beograd Jug
+Novi Sad Zapad|Beograd Jug
+Beograd Jug|Nis Sever

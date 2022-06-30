@@ -1,0 +1,5 @@
+1|igor|pavlov|ii|123|Administrator
+2|teodora|stojanovic|tt|123|SefStanice
+3|filip|vuksan|ff|123|MenadzerSistema
+4|pera|peric|pp|123|ReferentNaplate
+5|mika|mikic|mm|123|ProdavacTagova

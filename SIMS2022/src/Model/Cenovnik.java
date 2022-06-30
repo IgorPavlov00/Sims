@@ -62,5 +62,14 @@ public class Cenovnik {
 		return "Cenovnik [aktivan=" + aktivan + ", pocetakVazenja=" + pocetakVazenja + ", krajVazenja=" + krajVazenja
 				+ ", cene=" + cene + "]";
 	}
+	
+	public String getCeneString()  {
+		String str="";
+		for (Cena cena : cene) {
+			str += cena.getId() + ",";
+		}
+		str = str.substring(0, str.length() - 1);
+		return str;
+	}
 
 }

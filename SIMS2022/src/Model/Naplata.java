@@ -1,10 +1,12 @@
 package Model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Naplata {
-	private LocalDate vremeUlaska;
-	private LocalDate vremeIzlaska;
+	private LocalTime vremeUlaska;
+	private LocalTime vremeIzlaska;
 	private NaplatnaStanica mestoUlaska;
 	private NaplatnaStanica mestoIzlaska;
 	private String tabliceVozila;
@@ -14,26 +16,37 @@ public class Naplata {
 	public Naplata() {
 	}
 
-	public Naplata(LocalDate vremeUlaska, NaplatnaStanica mestoUlaska, String tabliceVozila, float prosecnaBrzina) {
+	public Naplata(LocalTime vremeUlaska, NaplatnaStanica mestoUlaska, String tabliceVozila, float prosecnaBrzina) {
 		this.vremeUlaska = vremeUlaska;
 		this.mestoUlaska = mestoUlaska;
 		this.tabliceVozila = tabliceVozila;
 		this.prosecnaBrzina = prosecnaBrzina;
 	}
 
-	public LocalDate getVremeUlaska() {
+	public Naplata(LocalTime vremeUlaska, LocalTime vremeIzlaska, NaplatnaStanica mestoUlaska,
+			NaplatnaStanica mestoIzlaska, String tabliceVozila, float prosecnaBrzina, Cena cena) {
+		this.vremeUlaska = vremeUlaska;
+		this.vremeIzlaska = vremeIzlaska;
+		this.mestoUlaska = mestoUlaska;
+		this.mestoIzlaska = mestoIzlaska;
+		this.tabliceVozila = tabliceVozila;
+		this.prosecnaBrzina = prosecnaBrzina;
+		this.cena = cena;
+	}
+
+	public LocalTime getVremeUlaska() {
 		return vremeUlaska;
 	}
 
-	public void setVremeUlaska(LocalDate vremeUlaska) {
+	public void setVremeUlaska(LocalTime vremeUlaska) {
 		this.vremeUlaska = vremeUlaska;
 	}
 
-	public LocalDate getVremeIzlaska() {
+	public LocalTime getVremeIzlaska() {
 		return vremeIzlaska;
 	}
 
-	public void setVremeIzlaska(LocalDate vremeIzlaska) {
+	public void setVremeIzlaska(LocalTime vremeIzlaska) {
 		this.vremeIzlaska = vremeIzlaska;
 	}
 
@@ -79,7 +92,7 @@ public class Naplata {
 
 	@Override
 	public String toString() {
-		return "Naplata [vremeUlaska=" + vremeUlaska + ", vremeIzlaska=" + vremeIzlaska + ", mestoUlaska=" + mestoUlaska
+		return "Naplata [vremeUlaska=" + vremeUlaska.format(DateTimeFormatter.ofPattern("HH:mm")) + ", vremeIzlaska=" + vremeIzlaska.format(DateTimeFormatter.ofPattern("HH:mm")) + ", mestoUlaska=" + mestoUlaska
 				+ ", mestoIzlaska=" + mestoIzlaska + ", tabliceVozila=" + tabliceVozila + ", prosecnaBrzina="
 				+ prosecnaBrzina + ", cena=" + cena + "]";
 	}

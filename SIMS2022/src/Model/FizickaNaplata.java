@@ -1,6 +1,6 @@
 package Model;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 import Model.Enums.TipVozila;
 
@@ -12,10 +12,16 @@ public class FizickaNaplata extends Naplata {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FizickaNaplata(LocalDate vremeUlaska, NaplatnaStanica mestoUlaska, String tabliceVozila,
-			float prosecnaBrzina) {
+	public FizickaNaplata(LocalTime vremeUlaska, NaplatnaStanica mestoUlaska, String tabliceVozila,
+			float prosecnaBrzina, TipVozila tipVozila) {
 		super(vremeUlaska, mestoUlaska, tabliceVozila, prosecnaBrzina);
-		// TODO Auto-generated constructor stub
+		this.tipVozila = tipVozila;
+	}
+
+	public FizickaNaplata(LocalTime vremeUlaska, LocalTime vremeIzlaska, NaplatnaStanica mestoUlaska,
+			NaplatnaStanica mestoIzlaska, String tabliceVozila, float prosecnaBrzina, Cena cena, TipVozila tipVozila) {
+		super(vremeUlaska, vremeIzlaska, mestoUlaska, mestoIzlaska, tabliceVozila, prosecnaBrzina, cena);
+		this.tipVozila = tipVozila;
 	}
 
 	public TipVozila getTipVozila() {
